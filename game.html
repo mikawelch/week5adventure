@@ -1,0 +1,124 @@
+<html>
+	<head>
+		<title>week 5</title>
+	
+	
+	
+	</head>
+	<body>
+		<h1>
+			Adventure
+		</h1>
+		<h1>
+		<span id="name1"> </span> <br>
+		Your HP is <span id="hp"> </span><br>
+		Enemy HP is <span id="enemy"> </span>
+		</h1>
+		<button id="attackbutton">ATTACK</button>
+		<button id="healbutton">USE POTION</button>
+		
+		
+		
+		<script src="human.js"></script>
+		<script src="monsters.js"></script>
+		<script>		
+						//
+		console.log(human); //					<<<-----////////////
+		console.log(monsters)												//
+			var game = {													//
+				name: "Finn the Human", //user - "human" monsters - "monsters"//
+				hp: 100,
+				damage: 12,
+		     	monsters1: [
+					{
+					name: "wyvern", //separate with comma's
+					hp:120,       //objects within an array
+					damage: 10
+					},
+					{
+					name: "undead",
+					hp:70,
+					damage: 18
+					},
+					{
+					name: "rogue",
+					hp:90,
+					damage: 12
+					},
+				 
+				]
+			}
+			
+		function genRandomNum(maxNumber) { ///!return replaces
+			return Math.floor(  Math.random() * maxNumber  );  ///console log/
+			
+			} ///floor or ceiling. round up or down
+
+		
+			var currentEnemyIndex = genRandomNum(game.monsters1.length);
+		var currentEnemyName = game.monsters1[currentEnemyIndex].name;
+		var currentEnemyHp = game.monsters1[currentEnemyIndex].hp;
+		var currentEnemyDamage = game.monsters1[currentEnemyIndex].damage;
+		console.log(currentEnemyName);
+		
+		var currentHp = game.hp;
+		var myDamage = game.damage;
+		//overwrite
+		
+		//1. get array 2. use brackets 3. get name with dot notation
+		
+		
+		//dont forget var
+		function attack() {
+		 //random enemy
+		
+	
+		
+		var hit = currentEnemyHp - myDamage;
+		var getHit = currentHp - currentEnemyDamage;
+		
+		currentHp = getHit;
+		currentEnemyHp = hit;
+		
+		enemy.innerText = currentEnemyHp;
+		hp.innerText = currentHp;
+		name1.innerText = "You attacked a " + currentEnemyName + " and lost " + currentEnemyDamage + " health.";
+		
+		
+		if (currentHp <= 0) {
+		alert("you have died");
+		
+		} else if (currentEnemyHp <= 0) {
+		alert("you have killed the " + currentEnemyName);
+		}
+		}
+		
+		
+		function potion() {
+		
+		currentHp = currentHp + 6;
+		alert("used a potion");
+		hp.innerText = currentHp
+		
+		
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		attackbutton.addEventListener("click", attack);
+		healbutton.addEventListener("click", potion);
+		</script>
+	
+	
+	</body>
+
+
+
+</html>
